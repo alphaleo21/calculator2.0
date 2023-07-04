@@ -1,7 +1,9 @@
 body{
     margin: 0;
     height: 100vh;
-    font-size: large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 section{
     display: flex;
@@ -12,26 +14,36 @@ section{
     margin: 2em;
     padding: 1em;
     background-color: rgb(240, 234, 227);
-    
+    width: 300px;
 }
 .screen{
     display: flex;
     flex-direction: column;
     border: .3em solid black;
+    
 }
 input{
     border: none;
+    border-color: none;
+    border-style: none;
+    font-size: large;
+    font-weight: bolder;
 }
 .buttons{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding: .5em;
+    padding: .3em;
     
+}
+.reClear{
+    width: 50%;
 }
 button{
     width: 25%;
     height: 50px;
-    
+    font-size: large;
+    font-weight: bolder;
+
 }
