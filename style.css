@@ -1,4 +1,37 @@
 body{
     margin: 0;
+    height: 100vh;
     font-size: large;
+}
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    margin: 2em;
+    padding: 1em;
+    background-color: rgb(240, 234, 227);
+    
+}
+.screen{
+    display: flex;
+    flex-direction: column;
+    border: .3em solid black;
+}
+input{
+    border: none;
+}
+.buttons{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: .5em;
+    
+}
+button{
+    width: 25%;
+    height: 50px;
+    
 }
