@@ -1,19 +1,7 @@
-function add(a, b) {
-    return a + b;
-}
-function sub(a, b){
-    return a - b;
-}
-function mul(a, b){
-    return a * b;
-}
-function div(a, b){
-    return a / b;
-}
-
 var currentValue;
 var preValue;
 var opValue;
+var result;
 
 curScreen = document.getElementById("curScreen");
 preScreen = document.getElementById("preScreen");
@@ -29,16 +17,16 @@ function opPressed(op){
     preScreen.value = preScreen.value + curScreen.value;
     curScreen.value = "";
     if(op == '+'){
-        curScreen.value = curScreen.value+'+';
+        curScreen.value = curScreen.value;
         opValue = 1;
     }else if(op == '-'){
-        curScreen.value = curScreen.value+'-';
+        curScreen.value = curScreen.value;
         opValue = 2;
     }else if(op == '*'){
-        curScreen.value = curScreen.value+'*';
+        curScreen.value = curScreen.value;
         opValue = 3;
     }else if(op == '/'){
-        curScreen.value = curScreen.value+'/';
+        curScreen.value = curScreen.value;
         opValue = 4;
     }
 }
@@ -60,8 +48,18 @@ function lastClear(){
 function eqPressed(){
     currentValue = curScreen.value;
     curScreen.value = "";
+    a = parseFloat(currentValue);
+    b = parseFloat(preValue);
     if(opValue == 1){
-        curScreen.value = Math.praseInt(add(preValue, currentValue));
+        result = a + b;
+    }else if(opValue == 2){
+        result = b - a;
+    }else if(opValue == 3){
+        result = b * a;
+    }else if(opValue == 4){
+        result = b / a;
     }
-    curScreen.value = preValue;
+    curScreen.value = result;
+    
 }
+
