@@ -13,14 +13,16 @@ section{
 .container{
     margin: 2em;
     padding: 1em;
-    background-color: rgb(240, 234, 227);
+    background-color: rgb(224, 169, 106);
     width: 300px;
+    border: 1px solid black;
+    border-radius: 4px;
 }
 .screen{
     display: flex;
     flex-direction: column;
     border: .3em solid black;
-    
+    height: 3.5em;
 }
 input{
     border: none;
@@ -28,6 +30,7 @@ input{
     border-style: none;
     font-size: large;
     font-weight: bolder;
+    height: 100%;
 }
 .buttons{
     display: flex;
@@ -46,4 +49,7 @@ button{
     font-size: large;
     font-weight: bolder;
 
+}
+.equalButton{
+    background-color: aqua;
 }

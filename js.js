@@ -1,65 +1,60 @@
-var currentValue;
+var screen = document.getElementById('curScreen');
 var preValue;
-var opValue;
+var curValue;
+var op;
 var result;
 
-curScreen = document.getElementById("curScreen");
-preScreen = document.getElementById("preScreen");
-
-function keyPressed(n){
-    
-    curScreen.value = curScreen.value+n;
-}
-
-function opPressed(op){
-    
-    preValue = curScreen.value;
-    preScreen.value = preScreen.value + curScreen.value;
-    curScreen.value = "";
-    if(op == '+'){
-        curScreen.value = curScreen.value;
-        opValue = 1;
-    }else if(op == '-'){
-        curScreen.value = curScreen.value;
-        opValue = 2;
-    }else if(op == '*'){
-        curScreen.value = curScreen.value;
-        opValue = 3;
-    }else if(op == '/'){
-        curScreen.value = curScreen.value;
-        opValue = 4;
-    }
+function keyPressed(e){
+    screen.value = screen.value+e;
 }
 
 function allClear(){
-    curScreen.value = "";
-    preScreen.value = "";
+    screen.value = '';
 }
+
 function lastClear(){
-    var now = curScreen.value;
-    now = Math.floor(now/10);
-    if(now == 0){
-        curScreen.value = "";
-    }else{
-        curScreen.value = now;
+    screen.value = Math.floor(screen.value/10);
+}
+
+function opPressed(e){
+    preValue = +(screen.value);
+    screen.value = '';
+    switch(e){
+        case '+':
+            op = 1;
+            break;
+        case '-':
+            op = 2;
+            break;
+        case '/':
+            op = 3;
+            break;
+        case '*':
+            op = 4;
+            break;
+        default:
+            break;
     }
 }
 
-function eqPressed(){
-    currentValue = curScreen.value;
-    curScreen.value = "";
-    a = parseFloat(currentValue);
-    b = parseFloat(preValue);
-    if(opValue == 1){
-        result = a + b;
-    }else if(opValue == 2){
-        result = b - a;
-    }else if(opValue == 3){
-        result = b * a;
-    }else if(opValue == 4){
-        result = b / a;
+function eqPressed() {
+    curValue = +(screen.value);
+    switch (op) {
+      case 1:
+        result = preValue + curValue;
+        break;
+      case 2:
+        result = preValue - curValue;
+        break;
+      case 3:
+        result = preValue / curValue;
+        break;
+      case 4:
+        result = preValue * curValue;
+        break;
+      default:
+        break;
     }
-    curScreen.value = result;
-    
+    screen.value = '';
+    screen.value = result;
 }
-
