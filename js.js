@@ -1,4 +1,6 @@
 var screen = document.getElementById('curScreen');
+var show = document.getElementById("preScreen");
+
 var preValue;
 var curValue;
 var op;
@@ -27,6 +29,7 @@ function opPressed(e){
     if(operandCount == 1){
       performOperation();
       screen.value = preValue;
+      show.value = preValue;
       console.log(preValue);
     }else{
       operandCount = 1;
@@ -93,5 +96,6 @@ function eqPressed() {
     }
     operandCount = 0;
     screen.value = '';
+    show.value = '';
     screen.value = result;
 }
